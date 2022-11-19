@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity 
 public class Historia {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,12 +19,14 @@ public class Historia {
 	private BigDecimal popularidade;
 	private LocalDate dataPublicacao;
 	private String historia;
-	
 	private String urlHistoria;
 	private String urlImagem;
 	public Historia() {
 		super();
 	}
+	@Autowired
+	LocalDate data;
+	
 	public String getNomeHistoria() {
 		return nomeHistoria;
 	}
@@ -31,6 +35,7 @@ public class Historia {
 		super();
 		this.nomeHistoria = nomeHistoria;
 		this.sinopseHistoria = sinopseHistoria;
+		this.dataPublicacao = data.now();
 		this.historia = historia;
 		this.urlHistoria = urlHistoria;
 		this.urlImagem = urlImagem;

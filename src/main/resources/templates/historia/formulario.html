@@ -53,38 +53,51 @@
 					<div class="card" style="width: auto;">
 						<div class="w-auto p-2" style="background-color: #eee;">
 							<div class="mb-3">
-								<form action="novo" method="post">
+								<form th:object="${requisicaoNovaHistoria}" action="novo"
+									method="post">
 									<div class="row mb-3">
 										<label for="nomeHistoria" class="col-sm-2 col-form-label">Título:</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control" name="nomeHistoria">
+											<input th:field="*{nomeHistoria}" type="text"
+												th:errorclass="is-invalid" class="form-control">
+											<div class="invalid-feedback" th:errors="*{nomeHistoria}">Título
+												não pode estar em branco</div>
 										</div>
 									</div>
+
 									<div class="row mb-3">
 										<label for="sinopseHistoria" class="col-sm-2 col-form-label">Resumo:</label>
 										<div class="col-sm-10">
-											<textarea class="form-control" name="sinopseHistoria" rows="2" placeholder="Faça um breve resumo ou introdução"></textarea>
+											<textarea th:field="*{sinopseHistoria}" class="form-control"
+												rows="2" placeholder="Faça um breve resumo ou introdução"></textarea>
 										</div>
 									</div>
 									<div class="row mb-3">
 										<label for="historia" class="col-sm-2 col-form-label">História:</label>
 										<div class="col-sm-10">
-											<textarea class="form-control" name="historia" rows="4"></textarea>
+											<textarea th:field="*{historia}" th:errorclass="is-invalid"
+												class="form-control" rows="4"></textarea>
+											<div class="invalid-feedback" th:errors="*{historia}">História
+												não pode estar em branco.</div>
+
 										</div>
 									</div>
 									<div class="row mb-3">
-										<label for="urlHistoria" class="col-sm-2 col-form-label">Link:</label>
+										<label for="urlHistoria" class="col-sm-2 col-form-label">História:</label>
 										<div class="col-sm-10">
-											<input type="link" class="form-control" name="urlHistoria">
+											<input th:field="*{urlHistoria}" type="link"
+												class="form-control" name="urlHistoria">
 										</div>
 									</div>
 									<div class="row mb-3">
 										<label for="urlImagem" class="col-sm-2 col-form-label">Imagem:</label>
 										<div class="col-sm-10">
-											<input type="link" class="form-control" name="urlImagem"
-												placeholder="Faça um breve resumo ou introdução">
+											<input th:field="*{urlImagem}" type="link"
+												class="form-control" name="urlImagem">
 										</div>
 									</div>
+
+
 									<div class="d-flex flex-row-reverse" m-3>
 										<button type="submit" class="btn btn-success">Enviar</button>
 									</div>

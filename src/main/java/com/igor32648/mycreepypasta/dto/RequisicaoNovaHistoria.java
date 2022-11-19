@@ -1,22 +1,24 @@
 package com.igor32648.mycreepypasta.dto;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.igor32648.mycreepypasta.model.Historia;
 
 public class RequisicaoNovaHistoria {
-	@NotBlank @Max(50)
+	@NotBlank
 	private String nomeHistoria;
-	@Max(255)
+	
 	private String sinopseHistoria;
-	@NotBlank @Max(10000)
+	@Size(max = 10000) @NotBlank
 	private String historia;
-	@Min(100) @Max(255)
 	private String urlHistoria;
-	@Max(255)
 	private String urlimagem;
+
+	public RequisicaoNovaHistoria() {
+		super();
+	}
 
 	public String getNomeHistoria() {
 		return nomeHistoria;

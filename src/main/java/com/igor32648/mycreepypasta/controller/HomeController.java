@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.igor32648.mycreepypasta.model.Historia;
-import com.igor32648.mycreepypasta.model.repository.HistoriaRepository;
+import com.igor32648.mycreepypasta.repository.HistoriaRepository;
 
 @Controller
 public class HomeController {
