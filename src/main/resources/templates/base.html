@@ -1,0 +1,113 @@
+<head th:fragment="head">
+<meta charset="UTF-8" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap"
+	rel="stylesheet">
+<style>
+.logo-container {
+	background-color: #292929;
+}
+
+.logo {
+	font-family: 'Rubik Glitch', cursive;
+	font-size: 2.5rem;
+	color: #FFFFFF;
+}
+
+.card-text {
+	text-align: justify;
+}
+</style>
+</head>
+<body>
+	<div th:fragment="logo"
+		class="logo-container mb-3 p-5 d-flex justify-content-between">
+		<h1 class="logo">creepy pasta</h1>
+		<div class="text-end rm-3">
+			<button type="button" class="btn btn-success">🪦Login</button>
+			</a>
+		</div>
+	</div>
+	<div th:fragment="navbar(titulo)">
+		<nav class="navbar navbar-dark navbar-expand-lg bg-dark d-flex">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"></a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a th:if="${titulo == 'Home'}"
+							href="/home" class="nav-link active" aria-current="page">⚰️Home</a></li>
+						<li class="nav-item"><a th:unless="${titulo == 'Home'}"
+							href="/home" class="nav-link">⚰️Home</a></li>
+						<li class="nav-item"><a th:if="${titulo == 'Nova'}"
+							href="/historia/formulario" class="nav-link active"
+							aria-current="page">🕯️Nova</a></li>
+						<li class="nav-item"><a th:unless="${titulo == 'Nova'}"
+							href="/historia/formulario" class="nav-link">🕯️Nova</a></li>
+						<li class="nav-item dropdown"><a
+							th:if="${titulo == 'Categoria'}"
+							class="nav-link dropdown-toggle active"
+							aria-current
+							"page"s href="#" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">🕷️Categorias
+						</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="/assustador/">💀Assustador</a></li>
+								<li><a class="dropdown-item" href="/engracado/">👻Engraçado</a></li>
+								<li><a class="dropdown-item" href="/lendaurbana/">🦄Lendas
+										Urbanas</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">Something else
+										here</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							th:unless="${titulo == 'Categoria'}"
+							class="nav-link dropdown-toggle" href="#" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">🕷️Categorias
+						</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="/assustador/">💀Assustador</a></li>
+								<li><a class="dropdown-item" href="/engracado/">👻Engraçado</a></li>
+								<li><a class="dropdown-item" href="/lendaurbana/">🦄Lendas
+										Urbanas</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">Something else
+										here</a></li>
+							</ul></li>
+						<li class="nav-item"><a class="nav-link disabled">Disabled</a>
+						</li>
+					</ul>
+					<form class="d-flex" role="search">
+						<input class="form-control me-2" type="search"
+							placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+	</div>
+	
+	<div th:fragment="sidebar"
+		class="card text-bg-dark col-12 col-md-3 mb-3 mt-2
+		opacity-75"
+		style="height: 600px;">
+		<div class="card-header">Header</div>
+		<div class="card-body">
+			<h5 class="card-title">Dark card title</h5>
+			<p class="card-text">Some quick example text to build on the card
+				title and make up the bulk of the card's content.</p>
+		</div>
+	</div>
+</body>

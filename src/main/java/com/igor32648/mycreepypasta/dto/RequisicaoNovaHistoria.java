@@ -1,20 +1,44 @@
 package com.igor32648.mycreepypasta.dto;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.igor32648.mycreepypasta.model.Categoria;
 import com.igor32648.mycreepypasta.model.Historia;
 
 public class RequisicaoNovaHistoria {
 	@NotBlank
 	private String nomeHistoria;
-	
+
 	private String sinopseHistoria;
-	@Size(max = 10000) @NotBlank
+	@Size(max = 10000)
+	@NotBlank
 	private String historia;
+	@Enumerated(EnumType.STRING)
+	private Categoria categoria;
 	private String urlHistoria;
 	private String urlimagem;
+	private String urlImagem;
+
+	
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public String getUrlimagem() {
+		return urlimagem;
+	}
+
+	public void setUrlimagem(String urlimagem) {
+		this.urlimagem = urlimagem;
+	}
 
 	public RequisicaoNovaHistoria() {
 		super();
@@ -60,11 +84,11 @@ public class RequisicaoNovaHistoria {
 		this.urlImagem = urlImagem;
 	}
 
-	private String urlImagem;
+	
 
 	public Historia toHistoria() {
-		Historia historia = new Historia(this.nomeHistoria, this.sinopseHistoria, 
-				this.historia, this.urlHistoria, this.urlImagem);
+		Historia historia = new Historia(this.nomeHistoria, this.sinopseHistoria, this.categoria, this.historia, this.urlHistoria,
+				this.urlImagem);
 		return historia;
 	}
 

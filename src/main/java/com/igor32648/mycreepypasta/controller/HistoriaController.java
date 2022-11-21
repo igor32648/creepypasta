@@ -40,8 +40,8 @@ public class HistoriaController {
 		Historia historia = requisicao.toHistoria();
 
 		historiaRepository.save(historia);
-		List<Historia> historias = historiaRepository.findAll();
-		model.addAttribute("historias", historias);
-		return "home";
+		//List<Historia> historias = historiaRepository.findAll();
+		//model.addAttribute("historias", historias);
+		return "redirect:/home";
 	}
 }

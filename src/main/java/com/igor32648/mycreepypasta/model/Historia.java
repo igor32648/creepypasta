@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,11 +18,14 @@ public class Historia {
 	private Long id;
 	private String nomeHistoria;
 	private String sinopseHistoria;
+	@Enumerated(EnumType.STRING)
+	private Categoria categoria;
 	private BigDecimal popularidade;
 	private LocalDate dataPublicacao;
 	private String historia;
 	private String urlHistoria;
 	private String urlImagem;
+	
 	public Historia() {
 		super();
 	}
@@ -30,15 +35,35 @@ public class Historia {
 	public String getNomeHistoria() {
 		return nomeHistoria;
 	}
-	public Historia(String nomeHistoria, String sinopseHistoria, String historia, String urlHistoria,
+	public Historia(String nomeHistoria, String sinopseHistoria, Categoria categoria, String historia, String urlHistoria,
 			String urlImagem) {
 		super();
 		this.nomeHistoria = nomeHistoria;
 		this.sinopseHistoria = sinopseHistoria;
+		this.categoria = categoria;
 		this.dataPublicacao = data.now();
 		this.historia = historia;
 		this.urlHistoria = urlHistoria;
 		this.urlImagem = urlImagem;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	public LocalDate getData() {
+		return data;
+	}
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 	public void setNomeHistoria(String nomeHistoria) {
 		this.nomeHistoria = nomeHistoria;
