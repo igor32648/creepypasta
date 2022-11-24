@@ -31,8 +31,8 @@
 		class="logo-container mb-3 p-5 d-flex justify-content-between">
 		<h1 class="logo">creepy pasta</h1>
 		<div class="text-end rm-3">
-			<button type="button" class="btn btn-success">🪦Login</button>
-			</a>
+			<a class="btn btn-success" sec:authorize="!isAuthenticated()"  href="/login">Login</a>
+			<a class="btn btn-danger" sec:authorize="isAuthenticated()"  href="/logout">Logout</a>
 		</div>
 	</div>
 	<div th:fragment="navbar(titulo)">

@@ -27,7 +27,9 @@
 											Popularidade >999</span>
 										</div>
 										<div class="col">
-											Data de Publicação <span>31-10-2022</span>
+											<th:block th:if="${historia.dataPublicacao} != null">
+												Data de Publicação:<span th:text="${#temporals.format(historia.dataPublicacao, 'dd/MM/yyyy')}">Data</span>
+											</th:block>
 										</div>
 									</div>
 								</div>

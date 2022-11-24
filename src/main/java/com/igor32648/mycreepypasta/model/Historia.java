@@ -6,9 +6,11 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,6 +27,9 @@ public class Historia {
 	private String historia;
 	private String urlHistoria;
 	private String urlImagem;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;
 	
 	public Historia() {
 		super();
